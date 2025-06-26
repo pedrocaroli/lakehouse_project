@@ -1,0 +1,15 @@
+{
+  "name": "@lakehouse-workspace/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {
+    "@nx-go/nx-go": "3.3.1"
+  },
+  "devDependencies": {
+    "@nx/workspace": "21.2.1",
+    "@nxlv/python": "^21.0.3",
+    "nx": "21.2.1"
+  }
+}

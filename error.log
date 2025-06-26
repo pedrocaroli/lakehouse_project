@@ -1,0 +1,6 @@
+
+ NX   Plugin @nx-go/nx-go only provides `createNodes` which was removed in Nx 21, it should provide a `createNodesV2` implementation.
+
+Pass --verbose to see the stacktrace.
+
+
