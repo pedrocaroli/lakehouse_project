@@ -13,4 +13,3 @@ def fetch_data():
         print('Ocorreu um erro na conexão da API')
 
 ##fetch_data()
-
