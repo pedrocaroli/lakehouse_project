@@ -1,0 +1,27 @@
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres:14.18
+    environment:
+      POSTGRES_USER: pedrocaroli
+      POSTGRES_PASSWORD: Btrb0130##
+      POSTGRES_DB: db_projeto_1
+    ports:
+      - "5432:5432"
+    volumes:
+    - ./postgres/data:/var/lib/postgresql/data
+
+#   airflow:
+#     build: ./airflow
+#     depends_on:
+#       - postgres
+#     environment:
+#       AIRFLOW_CORE_SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/lakehouse
+#     ports:
+#       - "8080:8080"
+#     volumes:
+#       - ./airflow/dags:/opt/airflow/dags
+#       - ./ingestion/opt/airflow/ingestion
+
+# volumes:
+#   pgdata:
