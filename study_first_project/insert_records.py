@@ -71,8 +71,17 @@ def insert_values(conn,data):
     except psycopg2.errors as e:
         print(f'Erro: {e}')
     
+def main():
+    try:
+        data = fetch_data()
+        conn = connect_to_db()
+        create_table(conn)
+        insert_values(conn,data)
+    except Exception as e:
+        print(f'Erro: {e}')
+    finally:
+        if 'conn' in locals():
+            conn.close()
+            print('Databse connection closed')
 
-data = fetch_data()
-conn = connect_to_db()
-create_table(conn)
-insert_values(conn,data)
+main()
