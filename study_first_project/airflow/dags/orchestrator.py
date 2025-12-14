@@ -6,7 +6,7 @@ from datetime import datetime ,timedelta
 sys.path.append('/opt/airflow/api_request')
 
 def callable_main():
-    from insert_records import main
+    from study_first_project.insert_records import main
     return main()
 
 default_args = {

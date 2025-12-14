@@ -1,4 +1,4 @@
-from api_request import fetch_data
+from study_first_project.api_request import fetch_data
 import psycopg2 as psycopg2
 import pandas as pd
 from psycopg2.extras import execute_values

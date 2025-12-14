@@ -26,6 +26,7 @@ services:
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./api_request:/opt/airflow/api_request
+      - ./insert_records:/opt/airflow/insert_records
     networks:
       - my-network
     command: >
