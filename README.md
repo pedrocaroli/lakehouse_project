@@ -11,7 +11,7 @@ This repository is meant as a portfolio piece to showcase:
 - Basic data ingestion code (requests → Postgres)
 - End-to-end demo using Metabase for visualization
 
-
+[Access the full documentation](https://github.com/pedrocaroli/lakehouse_project/wiki/Dollar-Exchange-Data-Pipeline-Project)
 
 # LakehouseWorkspace
 
