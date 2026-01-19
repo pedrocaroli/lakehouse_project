@@ -1,3 +1,18 @@
+# Dollar Exchange Data Pipeline Project
+
+Overview
+--------
+This project demonstrates a small end-to-end data engineering pipeline that collects real-world USD→BRL exchange data from a public API and persists it into a Postgres data warehouse. The pipeline is scheduled with Apache Airflow to run every 15 minutes to ingest fresh data, then uses dbt to transform the raw data into curated tables. Finally, Metabase is connected to the Postgres instance to visualize the data in a simple dashboard that refreshes every 15 minutes.
+
+This repository is meant as a portfolio piece to showcase:
+- Dockerized multi-service local environment
+- Airflow-based orchestration with a DAG that coordinates ingestion and transformation tasks
+- dbt models for Bronze→Silver transformations
+- Basic data ingestion code (requests → Postgres)
+- End-to-end demo using Metabase for visualization
+
+
+
 # LakehouseWorkspace
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
