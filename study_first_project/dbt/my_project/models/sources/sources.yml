@@ -1,0 +1,20 @@
+
+version: 2
+
+sources:
+  - name: dev
+    description: "A starter dbt model"
+    database: db_projeto_1
+    schema: dev
+    tables:
+      - name: raw_cotacao_data
+        columns:
+          - name: code
+          - name: codein
+          - name: name
+          - name: high
+          - name: low
+          - name: create_date
+          - name: timestamp
+
+

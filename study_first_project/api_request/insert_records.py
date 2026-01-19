@@ -1,4 +1,4 @@
-from study_first_project.api_request import fetch_data
+from api_request import fetch_data
 import psycopg2 as psycopg2
 import pandas as pd
 from psycopg2.extras import execute_values
@@ -7,7 +7,7 @@ def connect_to_db():
     print('Inciando conexão com o database...')
     try:
         conn = psycopg2.connect(
-            host='localhost',
+            host='postgres',
             port=5432,
             dbname= 'db_projeto_1',
             user= 'pedrocaroli',

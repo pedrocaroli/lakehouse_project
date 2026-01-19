@@ -1,13 +1,13 @@
 import sys
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.providers.docker.operators.docker import DockerOperator
 from datetime import datetime ,timedelta
+from docker.types import Mount as mount
 
 sys.path.append('/opt/airflow/api_request')
 
-def callable_main():
-    from study_first_project.insert_records import main
-    return main()
+from insert_records import main
 
 default_args = {
     'description': 'A DAG to write dolar values into the database every day',
@@ -25,5 +25,21 @@ dag = DAG(
 with dag:
     task1 = PythonOperator(
         task_id = 'data_ingestion_dolar_api',
-        python_callable = callable_main
+        python_callable = main
     )
+
+    task2 = DockerOperator(
+        task_id='transform_data',
+        image='ghcr.io/dbt-labs/dbt-postgres:1.9.latest',
+        mounts=[
+            mount(source = '/home/caroli/lakehouse-workspace/study_first_project/dbt/my_project',
+            target = '/usr/app',
+            type = 'bind'),
+            mount(source = '/home/caroli/lakehouse-workspace/study_first_project/dbt',target = '/usr/app',type = 'bind')
+        ],
+        auto_remove='success',
+        command='run',
+        docker_url='unix://var/run/docker.sock',
+        network_mode='study_first_project_my-network')
+    
+    task1 >> task2
