@@ -35,10 +35,10 @@ with dag:
             mount(source = '/home/caroli/lakehouse-workspace/study_first_project/dbt/my_project',
             target = '/usr/app',
             type = 'bind'),
-            mount(source = '/home/caroli/lakehouse-workspace/study_first_project/dbt',target = '/usr/app',type = 'bind')
+            mount(source = '/home/caroli/lakehouse-workspace/study_first_project/dbt/my_project/profiles.yml',target = '/root/.dbt/profiles.yml',type = 'bind')
         ],
         auto_remove='success',
-        command='run',
+        command='run --project-dir /usr/app --profiles-dir /root/.dbt',
         docker_url='unix://var/run/docker.sock',
         network_mode='study_first_project_my-network')
     
